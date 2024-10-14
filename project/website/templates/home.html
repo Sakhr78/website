@@ -1,0 +1,408 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقعي الشخصي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+        <!-- Font Awesome for social icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <link href="">
+        <script src="C:\Users\Hussein soft\OneDrive\سطح المكتب\visual stadio\الموقع\مجلد جديد\project html\js.js"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+ <link rel="stylesheet" href="{% static 'style.css' %}">
+
+ <style>
+    .icon img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+
+
+
+
+.main {
+    background-image: url('https://suadimarriage.com/wp-content/uploads/2024/04/%D8%A7%D8%B3%D8%AA%D8%AE%D8%B1%D8%A7%D8%AC-%D8%AA%D8%B5%D8%B1%D9%8A%D8%AD-%D8%B2%D9%88%D8%A7%D8%AC-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9.webp');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main .overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* طبقة شفافة فوق الصورة */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    animation: fade-in-bg 1.5s ease-in-out;
+}
+
+@keyframes fade-in-bg {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.main .content {
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.main h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+.main p {
+    font-size: 1.6rem;
+    margin: 20px 0;
+}
+
+.main .btn {
+    display: inline-block;
+    background-color: #28a745;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.main .btn:hover {
+    background-color: #218838;
+    transform: translateY(-5px);
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* تأثيرات Fade In على النص */
+.main .fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* تأخير في عرض النص */
+.main .delay-1s {
+    animation-delay: 1s;
+}
+
+.main .delay-2s {
+    animation-delay: 2s;
+}
+ </style>
+  
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="https://cdn.prod.website-files.com/6506c1d067ca1ac9e35e732e/6508217276ec3097d0e7f37b_image%201.png">
+            </div>
+            <nav id="navMenu">
+                <a href="#">الرئيسية</a>
+                <a href="#">من نحن</a>
+                <a href="#">خدماتنا</a>
+                <a href="#">تواصل معنا</a>
+            </nav>
+            <div class="buttons-service">
+                <button type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">اطلب خدمة الآن</button>
+            </div>
+            <div class="burger-menu" id="burgerMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="mobile-nav" id="mobileNav">
+            <a href="#">الرئيسية</a>
+            <a href="#">من نحن</a>
+            <a href="#">خدماتنا</a>
+            <a href="#">تواصل معنا</a>
+        </div>
+    </header>
+    
+
+{% block body %}
+    
+{% endblock body %}
+   
+    
+{% for about in main_about %}  
+
+    <div class="main">
+        <div class="overlay">
+            <div class="content">
+                <h1 class="fade-in">{{ about.title }}</h1>  <!-- إذا كان لديك خاصية title في النموذج -->  
+                <p class="fade-in delay-1s">{{ about.subtitle }}</p>  <!-- الوصول لوصف الخدمة -->  
+
+                <a href="https://wa.me/" class="btn fade-in delay-2s">راسلنا على واتس اب</a>
+            </div>
+        </div>
+    </div>  
+{% endfor %}  
+
+
+
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+             
+                {% for about in main_about %}  
+               
+                <div class="about-text">
+
+                    <h2>{{ about.title }}</h2>  <!-- إذا كان لديك خاصية title في النموذج -->  
+                    <p>{{ about.descriptions }}</p>  <!-- الوصول لوصف الخدمة -->  
+                    
+                        
+                    <a href="#" class="learn-more-btn">أعرف المزيد</a>
+                </div>
+                <div class="about-video">
+                    <img src="{{ about.image.url }}" alt="">
+                    <div class="play-button">
+                        <a href="#">
+                            <img src="{{ about.image.url }}" alt="">
+                        </a>
+                    </div>
+                    <div class="overlay-text">
+                        <h3>تعميـد يمول مشروعك</h3>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+   
+   
+   
+   
+    <!-- قسم الخدمات -->
+    <section class="services">
+        <div class="section-header">
+            <h2 >
+                مكتب رائد بن جمعان لاستخراج تصريح زواج بالسعودية
+            </h2>
+        </div>
+        <div class="service-cards">
+
+        {% for service in services %}  
+                <div class="service-card">  
+                    <div class="icon"><img src="{{ service.image.url }}" alt=""></div>  <!-- استخدام service بدلاً من services -->  
+                    <h2>{{ service.title }}</h2>  <!-- إذا كان لديك خاصية title في النموذج -->  
+                    <p>{{ service.descriptions }}</p>  <!-- الوصول لوصف الخدمة -->  
+                  
+            </div>  <!-- تأكد من وجود div للأيقونات -->  
+        {% endfor %}
+
+  
+                  
+        </div>
+    </section>
+
+
+    
+
+
+
+  
+
+
+    <section class="faq-section">
+        <div class="faq-container">
+            
+            <div class="faq-content">
+                
+                <div class="section-header">
+                    <h2> أسئلة شائعة </h2>
+                </div>
+                <div class="faq-accordion">
+                    {% for faq in faqs %}  
+                    <div class="faq-item">  
+                        <div class="faq-question">{{ faq.question }}</div>  
+                        <div class="faq-answer">{{ faq.answer }}</div>  
+                    </div>  
+                {% endfor %}  
+                
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+
+
+
+
+    <footer>
+      <div class="footer-container">
+          <div class="footer-section" style="min-width: 350px;">
+              <h3>حول الشركة</h3>
+              <p>موقع Digital ArabTech  هو أحد المواقع التي تُمثل العلامة التجارية GRE Development LTD المسجلة في أنجلترا وويلز التابعتان إلى المملكة المتحدة، رقم: "13031797".</p>
+              <p>العنوان: Coronation Road, London, United Kingdom, NW10 7PQ.</p>
+              <div class="social-icons">
+                  <a href="#"><i class="fab fa-whatsapp"></i></a>
+                  <a href="#"><i class="fab fa-github"></i></a>
+                  <a href="#"><i class="fab fa-telegram"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fab fa-facebook"></i></a>
+              </div>
+          </div>
+  
+          <div class="footer-section">
+              <h3>خدماتنا</h3>
+              <ul>
+                  <li><a href="#">تصميم المواقع</a></li>
+                  <li><a href="#">تصميم التطبيقات</a></li>
+                  <li><a href="#">تصميم بوتات التليجرام</a></li>
+                  <li><a href="#">الحماية من الاحتيال الرقمي</a></li>
+              </ul>
+          </div>
+     
+          <div class="footer-section">
+              <h3>تواصل معنا</h3>
+              <p><a href="mailto:info@gredev.io"><i class="fas fa-envelope"></i> info@gredev.io</a></p>
+              <p><a href="tel:+442045242360"><i class="fas fa-phone-alt"></i> +44 20 4524 2360</a></p>
+              <p><a href="https://wa.me/447787581015"><i class="fab fa-whatsapp"></i> +44 77 8758 1015</a></p>
+              <div class="payment-methods">
+                  <img src="https://via.placeholder.com/50x20?text=Visa" alt="Visa">
+                  <img src="https://via.placeholder.com/50x20?text=American+Express" alt="American Express">
+                  <img src="https://via.placeholder.com/50x20?text=Discover" alt="Discover">
+                  <img src="https://via.placeholder.com/50x20?text=Payoneer" alt="Payoneer">
+              </div>
+          </div>
+          
+      </div>
+      <div class="footer-bottom">
+        <hr>
+          جميع الحقوق محفوظة © GRE Development Ltd 2024
+      </div>
+  </footer>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">طلب خدمة</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="إغلاق">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="service">إضغط لاختيار الخدمة</label>
+              <select id="service" name="service">
+                  <option value="service1">خدمة 1</option>
+                  <option value="service2">خدمة 2</option>
+                  <option value="service2">خدمة 888882</option>
+
+              </select>
+              
+            </div>
+            <div class="form-group">
+              <label for="name">الاسم الكامل</label>
+              <input type="password" class="form-control" id="name" name="name" placeholder="اكتب اسمك الكامل">
+            </div>
+            <div class="form-group">
+              <label for="email">البريد الإلكتروني</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="اكتب بريدك الإلكتروني">
+            </div>
+            <div class="form-group">
+              <label for="phone">رقم الهاتف</label>
+              <input type="tel" class="form-control" id="phone" name="phone" placeholder="500000000">
+            </div>
+            <div class="form-group">
+              <label for="country">البلد</label>
+              <select id="country" name="country">
+                  <option value="country1">بلد 1</option>
+                  <option value="country2">بلد 2</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">طلب الخدمة</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">إلغاء</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+        <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+    document.getElementsByClassName
+        const burgerMenu = document.getElementById('burgerMenu');
+        const mobileNav = document.getElementById('mobileNav');
+        burgerMenu.addEventListener('click', () => {
+            burgerMenu.classList.toggle('open');
+            mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+
+
+
+
+<script>
+    
+
+    AOS.init();
+
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+
+    question.addEventListener('click', () => {
+        item.classList.toggle('active');
+    });
+});
+
+
+</script>
+
+
+</body>
+</html>
